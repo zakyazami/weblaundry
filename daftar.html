@@ -1,0 +1,14 @@
+<?
+require 'function.php';
+$fullname = $_POST["fullname"];
+$email = $_POST["email"];
+$password = $_POST["password"];
+$retype_password = $_POST["retype_password"];
+
+$query_sql = "INSERT INTO app_laundry (servername ,username, password, database) VALUES ('$servername' ,'$username', '$password', '$database')";
+if (mysqli_query($conn, $query_sql)) {
+    header("Location: dashboard.php");
+}
+else{
+    echo "Pendaftaran Gagal : " . mysqli_error($conn);
+}
